@@ -33,7 +33,7 @@ all: srpm
 
 clean:
 	@echo "Cleaning..."
-	rm -rf $(rpmbuild_dir) $(tmp_dir) *.tar.gz $(tgz_dir) $(rpm_dir) $(deb_dir) $(spec_file)
+	rm -rf $(rpmbuild_dir) $(spec_file) *.rpm
 
 
 spec:
@@ -45,18 +45,18 @@ pre_rpmbuild: spec
 	@echo "Preparing for rpmbuild in $(rpmbuild_dir)"
 	mkdir -p $(rpmbuild_dir)/BUILD $(rpmbuild_dir)/RPMS $(rpmbuild_dir)/SOURCES $(rpmbuild_dir)/SPECS $(rpmbuild_dir)/SRPMS
 	test -f $(rpmbuild_dir)/SOURCES/$(name)-$(version).tar.gz || wget -P $(rpmbuild_dir)/SOURCES $(dist_url)
-	#mv $(name)-$(version).tar.gz $(name)-$(version).src.tar.gz
-	#cp $(name)-$(version).tar.gz $(rpmbuild_dir)/SOURCES
 
 
 srpm: pre_rpmbuild
 	@echo "Building SRPM in $(rpmbuild_dir)"
 	rpmbuild --nodeps -v -bs $(spec_file) --define "_topdir $(rpmbuild_dir)"
+	cp $(rpmbuild_dir)/SRPMS/*.src.rpm .
 
 
 rpm: pre_rpmbuild
 	@echo "Building RPM/SRPM in $(rpmbuild_dir)"
 	rpmbuild --nodeps -v -ba $(spec_file) --define "_topdir $(rpmbuild_dir)"
+	find $(rpmbuild_dir)/RPMS -name "*.rpm" -exec cp '{}' . \;
 
 
 etics:
