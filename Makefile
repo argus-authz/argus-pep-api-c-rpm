@@ -21,7 +21,8 @@ name = argus-pep-api-c
 version = 2.2.0
 release = 1
 
-spec_file = spec/$(name).spec
+dist_url = https://github.com/downloads/argus-authz/argus-pep-api-c/$(name)-$(version).tar.gz
+spec_file = fedora/$(name).spec
 rpmbuild_dir = $(CURDIR)/rpmbuild
 tmp_dir=$(CURDIR)/tmp
 tgz_dir=$(CURDIR)/tgz
@@ -41,11 +42,11 @@ spec:
 
 
 pre_rpmbuild: spec
-	test -f $(name)-$(version).tar.gz || make dist
 	@echo "Preparing for rpmbuild in $(rpmbuild_dir)"
-	mv $(name)-$(version).tar.gz $(name)-$(version).src.tar.gz
 	mkdir -p $(rpmbuild_dir)/BUILD $(rpmbuild_dir)/RPMS $(rpmbuild_dir)/SOURCES $(rpmbuild_dir)/SPECS $(rpmbuild_dir)/SRPMS
-	cp $(name)-$(version).src.tar.gz $(rpmbuild_dir)/SOURCES/$(name)-$(version).tar.gz
+	test -f $(rpmbuild_dir)/SOURCES/$(name)-$(version).tar.gz || wget -P $(rpmbuild_dir)/SOURCES $(dist_url)
+	#mv $(name)-$(version).tar.gz $(name)-$(version).src.tar.gz
+	#cp $(name)-$(version).tar.gz $(rpmbuild_dir)/SOURCES
 
 
 srpm: pre_rpmbuild
