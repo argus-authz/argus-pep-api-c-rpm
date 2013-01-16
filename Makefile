@@ -63,6 +63,6 @@ git_source:
 	@echo "Checkout source from $(git_url)"
 	git clone $(git_url)
 	(cd $(name) && git checkout $(git_branch))
-	(cd $(name) && make dist)
+	(cd $(name) && ./autotools.sh && ./configure && make dist)
 	mkdir -p $(rpmbuild_dir)/SOURCES
 	cp $(name)/$(name)-$(version).tar.gz $(rpmbuild_dir)/SOURCES
