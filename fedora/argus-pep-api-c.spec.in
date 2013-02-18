@@ -6,7 +6,7 @@ Release: @@SPEC_RELEASE@@%{?dist}
 Summary: Argus PEP client library
 
 
-License: Apache License
+License: ASL 2.0
 Group: System Environment/Libraries
 URL: https://twiki.cern.ch/twiki/bin/view/EGEE/AuthorizationFramework
 
