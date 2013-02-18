@@ -6,7 +6,7 @@ Release: @@SPEC_RELEASE@@%{?dist}
 Summary: Argus PEP client library
 
 
-License: ASL 2.0
+License: Apache License
 Group: System Environment/Libraries
 URL: https://twiki.cern.ch/twiki/bin/view/EGEE/AuthorizationFramework
 
@@ -21,8 +21,8 @@ BuildRequires: libcurl-devel
 %endif
 
 %description
-The Argus PEP client API for C is a multi-thread friendly client library used to 
-communicate with the Argus PEP Server. It authorizes request and receives
+The Argus PEP client API for C is a multi-thread friendly client library used
+to communicate with the Argus PEP Server. It authorizes request and receives
 authorization response back from Argus.
 
 %package devel
@@ -37,8 +37,8 @@ Requires: %{name} = %{version}-%{release}
 
 
 %description devel
-The Argus PEP client API for C is a multi-thread friendly client library used to 
-communicate with the Argus PEP Server. It authorizes request and receives
+The Argus PEP client API for C is a multi-thread friendly client library used
+to communicate with the Argus PEP Server. It authorizes request and receives
 authorization response back from Argus.
 
 This package contains the development libraries.
@@ -80,7 +80,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/libargus-pep.so.2.0.4
 %{_libdir}/libargus-pep.so.2
 
-%doc AUTHORS COPYING LICENSE README INSTALL ChangeLog
+%doc AUTHORS COPYING LICENSE README ChangeLog
 
 %files devel
 %defattr(-,root,root,-)
