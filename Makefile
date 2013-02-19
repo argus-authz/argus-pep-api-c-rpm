@@ -19,7 +19,7 @@
 #
 name = argus-pep-api-c
 version = 2.2.0
-release = 2
+release = 1
 
 dist_url = http://argus-authz.github.com/$(name)/distrib/$(name)-$(version).tar.gz
 
