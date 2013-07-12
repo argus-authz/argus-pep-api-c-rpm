@@ -97,6 +97,9 @@ rm -rf $RPM_BUILD_ROOT
 %doc src/example
 
 %changelog
+* Fri Jul 12 2013 Valery Tschopp <valery.tschopp@switch.ch> 2.2.0-2 
+- Source in spec file corrected.
+
 * Thu Nov 8 2012 Valery Tschopp <valery.tschopp@switch.ch> 2.2.0-1 
 - Package for upstream version 2.2.0
 - Corrects rpmlint errors and warnings.
