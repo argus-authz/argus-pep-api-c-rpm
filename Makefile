@@ -18,10 +18,10 @@
 # RPM packaging
 #
 name = argus-pep-api-c
-version = 2.2.0
-release = 2
+version = 2.3.0
+release = 1
 
-dist_url = http://argus-authz.github.com/$(name)/distrib/$(name)-$(version).tar.gz
+dist_url = http://argus-authz.github.io/$(name)/distrib/$(name)-$(version).tar.gz
 
 git_url = https://github.com/argus-authz/$(name).git
 git_branch = EMI-3

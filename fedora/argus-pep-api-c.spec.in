@@ -77,7 +77,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(-,root,root,-)
-%{_libdir}/libargus-pep.so.2.0.4
+%{_libdir}/libargus-pep.so.2.1.0
 %{_libdir}/libargus-pep.so.2
 
 %doc AUTHORS COPYING LICENSE README ChangeLog
@@ -97,6 +97,9 @@ rm -rf $RPM_BUILD_ROOT
 %doc src/example
 
 %changelog
+* Mon Apr 28 2014 Valery Tschopp <valery.tschopp@switch.ch> 2.3.0-1
+- Package for upstream version 2.3.0
+
 * Fri Jul 12 2013 Valery Tschopp <valery.tschopp@switch.ch> 2.2.0-2 
 - Source in spec file corrected.
 
